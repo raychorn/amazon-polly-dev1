@@ -1,0 +1,74 @@
+Language,voiceid,Gender,Neural,Standard
+Catalan (ca-ES),Arlet,Female,Yes,No
+"Chinese, Mandarin (cmn-CN)",Zhiyu,Female,Yes,Yes
+Danish (da-DK),Naja,Female,No,Yes
+Danish (da-DK),Mads,Male,No,Yes
+Dutch (nl-NL),Lotte,Female,No,Yes
+Dutch (nl-NL),Ruben,Male,No,Yes
+English (Australian) (en-AU),Nicole,Female,No,Yes
+English (Australian) (en-AU),Olivia,Female,Yes,No
+English (Australian) (en-AU),Russell,Male,No,Yes
+English (British) (en-GB),Amy,Female,Yes,Yes
+English (British) (en-GB),Emma,Female,Yes,Yes
+English (British) (en-GB),Brian,Male,Yes,Yes
+English (British) (en-GB),Arthur,Male,Yes,No
+English (Indian) (en-IN),Aditi,Female,No,Yes
+English (Indian) (en-IN),Raveena,Male,No,Yes
+English (Indian) (en-IN),Kajal,Male,Yes,Yes
+English (New Zealand) (en-NZ),Aria,Female,Yes,No
+English (South African) (en-ZA),Ayanda,Female,Yes,No
+English (US) (en-US),Ivy,Female,Yes,Yes
+English (US) (en-US),Joanna,Female,Yes,Yes
+English (US) (en-US),Kendra,Female,Yes,Yes
+English (US) (en-US),Kimberly,Female,Yes,Yes
+English (US) (en-US),Salli,Female,Yes,Yes
+English (US) (en-US),Joey,Male,Yes,Yes
+English (US) (en-US),Justin,Male,Yes,Yes
+English (US) (en-US),Kevin,Male,Yes,No
+English (US) (en-US),Matthew,Male,Yes,Yes
+English (Welsh) (en-GB-WLS),Geraint,Male,No,Yes
+French (fr-FR),Celine,Female,No,Yes
+French (fr-FR),Lea,Female,Yes,Yes
+French (fr-FR),Mathieu,Male,No,Yes
+French (Canadian) (fr-CA),Chantal,Female,No,Yes
+French (Canadian) (fr-CA),Gabrielle,Female,Yes,No
+French (Canadian) (fr-CA),Liam,Male,Yes,No
+German (de-DE),Marlene,Female,No,Yes
+German (de-DE),Vicki,Female,Yes,Yes
+German (de-DE),Hans,Male,No,Yes
+German (de-DE),Daniel,Male,Yes,Yes
+German (Austrian) (de-AT),Hannah,Female,Yes,No
+Hindi (hi-IN),Aditi,Female,No,Yes
+Hindi (hi-IN),Kajal,Female,Yes,No
+Icelandic (is-IS),Dora,Female,No,Yes
+Icelandic (is-IS),Karl,Male,No,Yes
+Italian (it-IT),Carla,Female,No,Yes
+Italian (it-IT),Bianca,Female,Yes,Yes
+Italian (it-IT),Giorgio,Male,No,Yes
+Japanese (ja-JP),Mizuki,Female,No,Yes
+Japanese (ja-JP),Takumi,Male,Yes,Yes
+Korean (ko-KR),Seoyeon,Female,Yes,Yes
+Norwegian (nb-NO),Liv,Female,No,Yes
+Polish (pl-PL),Ewa,Female,No,Yes
+Polish (pl-PL),Maja,Female,No,Yes
+Polish (pl-PL),Jacek,Male,No,Yes
+Polish (pl-PL),Jan,Male,No,Yes
+Portuguese (Brazilian) (pt-BR),Camila,Female,Yes,Yes
+Portuguese (Brazilian) (pt-BR),Vitoria,Female,Yes,Yes
+Portuguese (Brazilian) (pt-BR),Ricardo,Male,No,Yes
+Portuguese (European) (pt-PT),Ines,Female,Yes,Yes
+Portuguese (European) (pt-PT),Cristiano,Male,No,Yes
+Romanian (ro-RO),Carmen,Female,No,Yes
+Russian (ru-RU),Tatyana,Female,No,Yes
+Russian (ru-RU),Maxim,Male,No,Yes
+Spanish (European) (es-ES),Conchita,Female,No,Yes
+Spanish (European) (es-ES),Lucia,Female,Yes,Yes
+Spanish (European) (es-ES),Enrique,Male,No,Yes
+Spanish (Mexican) (es-MX),Mia,Female,Yes,Yes
+Spanish (US) (es-US),Lupe,Female,Yes,Yes
+Spanish (US) (es-US),Penelope,Female,No,Yes
+Spanish (US) (es-US),Miguel,Male,No,Yes
+Spanish (US) (es-US),Pedro,Male,Yes,No
+Swedish (sv-SE),Astrid,Female,No,Yes
+Turkish (tr-TR),Filiz,Female,No,Yes
+Welsh (cy-GB),Gwyneth,Female,No,Yes
