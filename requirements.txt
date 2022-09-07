@@ -1,0 +1,2 @@
+boto3==1.24.66
+ssml-builder==1.1.1
