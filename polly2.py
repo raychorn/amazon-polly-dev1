@@ -12,10 +12,13 @@ from tempfile import gettempdir
 
 from voiceutils import utils
 
+SPEECH_DIR = 'speech2'
+TEXTFILE = 'sample_story.txt'
+TEXTTYPE_SSML = 'ssml' # 'ssml' or 'text'
 VOICES_FILENAME = 'Polly Voices - Sheet1.csv'
 
 root_dir = os.path.dirname(os.path.abspath(__file__))
-speech_dir = os.path.join(root_dir, 'speech')
+speech_dir = os.path.join(root_dir, SPEECH_DIR)
 
 if (not os.path.exists(speech_dir)):
     os.mkdir(speech_dir)
@@ -23,7 +26,6 @@ else:
     for f in os.listdir(speech_dir):
         os.remove(os.path.join(speech_dir, f))
 
-TEXTFILE = 'sample_story.txt'
 text_to_read = os.path.join(root_dir, TEXTFILE)
 
 PAUSE_SECS = 0.5
@@ -59,18 +61,22 @@ def text_to_ssml(sometext, pause_secs=PAUSE_SECS):
         l = l.strip()
         if (len(l) == 0):
             speech.p(l)
+            pass
         else:
             speech.add_text(l)
-            speech.add_break(pause_secs*2)
+            #speech.prosody(value=l, volume='loud')
+            speech.pause(str(pause_secs) + 's')
     
     return speech.speak()
 
 _text_to_read = text_to_ssml(_text_to_read)
 
 
-def request_polly_speak(profile_name=None, region_name=None, voice=None, text_to_read=None, output_filename=None):
+def request_polly_speak(profile_name=None, region_name=None, voice=None, text_to_read=None, textType=None, output_filename=None):
     session = Session(profile_name=profile_name)
     polly = session.client("polly", region_name=region_name)
+    
+    textType = 'text' if (not textType in ['ssml', 'text']) else textType
 
     try:
         # Request speech synthesis
@@ -82,9 +88,10 @@ def request_polly_speak(profile_name=None, region_name=None, voice=None, text_to
         _text_to_read = text_to_read
         if (is_neural):
             response = polly.synthesize_speech(Text=_text_to_read, OutputFormat="mp3", VoiceId=voice.get('voiceid'),
-                                                Engine='neural' if str(voice.get('Standard', 'no')).lower() == 'yes' else 'neural')
+                                                Engine='neural' if str(voice.get('Standard', 'no')).lower() == 'yes' else 'neural',
+                                                TextType=textType)
         elif (is_standard):
-            response = polly.synthesize_speech(Text=_text_to_read, OutputFormat="mp3", VoiceId=voice.get('voiceid'))
+            response = polly.synthesize_speech(Text=_text_to_read, OutputFormat="mp3", VoiceId=voice.get('voiceid'), TextType=textType)
         else:
             assert is_standard or is_neural, "ERROR: The voice '%s' is not standard or neural." % (voice.get('voiceid'))
     except (BotoCoreError, ClientError) as error:
@@ -115,10 +122,22 @@ def request_polly_speak(profile_name=None, region_name=None, voice=None, text_to
                 return output_filename, file_size
             
     return None, -1
-    
-output_filename = os.path.join(this_dir, "{}{}{}_speech.mp3".format(speech_dir, os.sep, a_speaker.get('voiceid')))
-fname, fsize = request_polly_speak(profile_name="vyperlogix", region_name='us-west-2', voice=a_speaker, text_to_read=_text_to_read, output_filename=output_filename)
 
-
-assert (os.path.exists(fname)) , "ERROR: The file '%s' does not exist." % (fname)
+if (0):
+    output_filename = os.path.join(this_dir, "{}{}{}_speech.mp3".format(speech_dir, os.sep, a_speaker.get('voiceid')))
+    fname, fsize = request_polly_speak(profile_name="vyperlogix", region_name='us-west-2', voice=a_speaker, text_to_read=_text_to_read, textType=TEXTTYPE_SSML, output_filename=output_filename)
+    if (not os.path.exists(fname)):
+        print(fname)
+        print(fsize)
+    assert (os.path.exists(fname)) , "ERROR: The file '%s' does not exist." % (fname)
+else:
+    for a_speaker in speakers:
+        output_filename = os.path.join(this_dir, "{}{}{}{}{}{}{}_speech.mp3".format(speech_dir, os.sep, a_speaker.get('Language'), os.sep, a_speaker.get('Gender'), os.sep, a_speaker.get('voiceid')))
+        os.makedirs(os.path.dirname(output_filename), exist_ok=True)
+        fname, fsize = request_polly_speak(profile_name="vyperlogix", region_name='us-west-2', voice=a_speaker, text_to_read=_text_to_read, textType=TEXTTYPE_SSML, output_filename=output_filename)
+        if (not os.path.exists(fname)):
+            print(fname)
+            print(fsize)
+        assert (os.path.exists(fname)) , "ERROR: The file '%s' does not exist." % (fname)
+        
 print('Done.')
