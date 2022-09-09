@@ -1,0 +1,10 @@
+==voice== Brian
+The first step is vital. Access a VR station and choose your destination.
+
+After you load into the VR session you will look for the container you can drop your schematics into.
+
+Get access from your organization leader who can setup the RDMS for you.
+
+While in VR, you will retrieve the schematics then drop them into the container.
+
+Exit VR.  You are done.

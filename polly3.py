@@ -14,7 +14,7 @@ from voiceutils import utils
 from voiceutils import polly
 
 SPEECH_DIR = 'speech3'
-TEXTFILE = 'sample_script.txt'
+TEXTFILE = 'sample_script3.txt'
 TEXTTYPE_SSML = 'ssml' # 'ssml' or 'text'
 VOICES_FILENAME = 'Polly Voices - Sheet1.csv'
 
@@ -65,7 +65,6 @@ def script_to_ssml_for_speaker(sometext, pause_secs=PAUSE_SECS, num=0, voices=[]
     
     _num = 0
     __is__ = False
-    __has__ = False
     voiceid = None
     speaker = None
     for l in lines:
@@ -76,9 +75,8 @@ def script_to_ssml_for_speaker(sometext, pause_secs=PAUSE_SECS, num=0, voices=[]
                 voiceid = l.replace(VOICE_TOKEN + ' ', '').strip()
                 speaker = [d for d in voices if (str(d.get('voiceid')).lower() == voiceid.lower())]
                 assert len(speaker) == 1, "ERROR: The voice '%s' is not in the list of voices." % (voiceid)
-        elif (__is__) and (not __has__) and (len(l) == 0):
+        elif (__is__) and (len(l) == 0):
             speech.pause(str(pause_secs) + 's')
-            __has__ = True
         elif (num == _num):
             try:
                 speech.add_text(l)
